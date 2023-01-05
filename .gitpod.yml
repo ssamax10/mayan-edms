@@ -1,7 +1,7 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev | 
-          pip install -r requirements.txt
+  - init: sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev
+    command: pip install -r requirements.txt
     command: ./manage.py runserver 8090 
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
