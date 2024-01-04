@@ -35,29 +35,14 @@ components:
       env:
         - name: DEBUG_PORT
           value: '5858'
-workspaces:
-  - name: py-web
-    machines:
-      - id: py-web-machine
-        attributes:
-          timeout: 1800000       
+lifecycle:
+  pre-create:
+    - command: pip install -r requirements.txt
+      timeout: 120000  # Timeout for this command in milliseconds
+  post-create:
+    - command: 'python manage.py initialsetup'
+      timeout: 120000
 commands:
-  - id: pip-install-requirements
-    exec:
-      commandLine: pip install -r requirements.txt
-      workingDir: ${PROJECT_SOURCE}
-      group:
-        kind: build
-        isDefault: true
-      component: py-web
-  - id: initial-setup
-    exec:  
-      commandLine: 'python manage.py initialsetup'
-      workingDir: ${PROJECT_SOURCE}
-      component: py-web
-      group:
-        kind: run
-        isDefault: true    
   - id: run-app
     exec:
       commandLine: 'python manage.py runserver 0.0.0.0:8000'
