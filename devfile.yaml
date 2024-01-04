@@ -35,11 +35,12 @@ components:
       env:
         - name: DEBUG_PORT
           value: '5858'
-services:
-  - attributes:
-      memoryLimit: '2Gi'
-    type: workspace
-    timeout: 1800000          
+workspaces:
+  - name: py-web
+    machines:
+      - id: py-web-machine
+        attributes:
+          timeout: 1800000       
 commands:
   - id: pip-install-requirements
     exec:
