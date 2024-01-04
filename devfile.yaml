@@ -19,13 +19,6 @@ starterProjects:
     git:
       remotes:
         origin: https://github.com/ssamax10/mayan-edms.git
-lifecycle:
-  pre-create:
-    - command: pip install -r requirements.txt
-      timeout: 120000  # Timeout for this command in milliseconds
-  post-create:
-    - command: 'python manage.py initialsetup'
-      timeout: 120000
 components:
   - name: py-web
     container:
@@ -43,6 +36,14 @@ components:
         - name: DEBUG_PORT
           value: '5858'
 commands:
+  - id: install-dependency
+    exec:
+      commandLine: 'pip install -r requirements.txt'
+      workingDir: ${PROJECT_SOURCE}
+      component: py-web
+      group:
+        kind: run
+        isDefault: true
   - id: run-app
     exec:
       commandLine: 'python manage.py runserver 0.0.0.0:8000'
