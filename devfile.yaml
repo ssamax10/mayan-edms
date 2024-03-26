@@ -26,7 +26,6 @@ components:
       args: ["tail", "-f", "/dev/null"]
       mountSources: true
        ports:
-        - imageSelector: registry.access.redhat.com/ubi9/python-39:1-161
         forward:
         - port: 8091
           remotePort: 8091
