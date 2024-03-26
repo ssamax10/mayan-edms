@@ -26,9 +26,9 @@ components:
       args: ["tail", "-f", "/dev/null"]
       mountSources: true
        ports:
-        forward:
-        - port: 8091
-          remotePort: 8091
+        - forward:
+            - port: 8091
+              remotePort: 8091
       endpoints:
         - name: http-django
           targetPort: 8091
