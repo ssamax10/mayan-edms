@@ -15,20 +15,21 @@ metadata:
   provider: Red Hat
   version: 2.1.0
 starterProjects:
-  - name: mayan
+  - name: mayan-edms
     git:
       remotes:
         origin: https://github.com/ssamax10/mayan-edms.git
 components:
-  - name: py-web
+  - name: mayan
     container:
       image: registry.access.redhat.com/ubi9/python-39:1-161
       args: ["tail", "-f", "/dev/null"]
       mountSources: true
       endpoints:
         - name: http-django
-          targetPort: 8000
-        - exposure: none
+          containerPort: 8091
+          targetPort: 8091
+        - exposure: public
           name: debug
           targetPort: 5858
      
@@ -40,15 +41,15 @@ commands:
     exec:
       commandLine: 'pip install -r requirements.txt'
       workingDir: ${PROJECT_SOURCE}
-      component: py-web
+      component: mayan
       group:
         kind: run
         isDefault: true
   - id: run-app
     exec:
-      commandLine: 'python manage.py runserver 0.0.0.0:8000'
+      commandLine: 'python manage.py runserver 0.0.0.0:8091'
       workingDir: ${PROJECT_SOURCE}
-      component: py-web
+      component: mayan
       group:
         kind: run
         isDefault: true
@@ -56,11 +57,11 @@ commands:
     exec:
       commandLine: 'python manage.py migrate'
       workingDir: ${PROJECT_SOURCE}
-      component: py-web
+      component: mayan
   - id: debug
     exec:
       commandLine: 'pip install debugpy && export DEBUG_MODE=True && python -m debugpy --listen 0.0.0.0:${DEBUG_PORT} manage.py runserver 0.0.0.0:8000 --noreload --nothreading'
       workingDir: ${PROJECT_SOURCE}
-      component: py-web
+      component: mayan
       group:
         kind: debug
