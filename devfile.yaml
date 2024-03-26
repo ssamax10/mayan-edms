@@ -27,7 +27,6 @@ components:
       mountSources: true
       endpoints:
         - name: http-django
-          containerPort: 8091
           targetPort: 8091
         - exposure: public
           name: debug
