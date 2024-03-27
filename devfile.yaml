@@ -23,10 +23,6 @@ components:
       image: registry.access.redhat.com/ubi9/python-39:1-161
       args: ["tail", "-f", "/dev/null"]
       mountSources: true
-      ports:
-        - forward:
-            - port: 8091
-              remotePort: 8091
       endpoints:
         - name: http-django
           targetPort: 8091
