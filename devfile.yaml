@@ -18,7 +18,7 @@ starterProjects:
       remotes:
         origin: https://github.com/ssamax10/mayan-edms.git
 components:
-  - name: mayan
+  - name: app
     container:
       image: registry.access.redhat.com/ubi9/python-39:1-161
       args: ["tail", "-f", "/dev/null"]
