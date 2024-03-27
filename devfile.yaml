@@ -12,11 +12,6 @@ metadata:
   language: Python
   provider: Red Hat
   version: 2.1.0
-starterProjects:
-  - name: mayan
-    git:
-      remotes:
-        origin: https://github.com/ssamax10/mayan-edms.git
 components:
   - name: app
     container:
