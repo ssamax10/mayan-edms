@@ -8,3 +8,8 @@ ipython==7.32.0
 readme==0.7.1
 safety==1.10.3
 transifex-client==0.14.4
+certifi>=2023.7.22 # not directly required, pinned by Snyk to avoid a vulnerability
+gitpython>=3.1.41 # not directly required, pinned by Snyk to avoid a vulnerability
+idna>=3.7 # not directly required, pinned by Snyk to avoid a vulnerability
+pygments>=2.15.0 # not directly required, pinned by Snyk to avoid a vulnerability
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
