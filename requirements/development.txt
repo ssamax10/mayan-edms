@@ -4,7 +4,11 @@ django-extensions==3.1.5
 django-rosetta==0.9.8
 django-silk==4.3.0
 flake8==4.0.1
-ipython==7.32.0
+ipython==8.10.0
 readme==0.7.1
 safety==1.10.3
 transifex-client==0.14.4
+aiohttp>=3.9.4 # not directly required, pinned by Snyk to avoid a vulnerability
+requests>=2.32.0 # not directly required, pinned by Snyk to avoid a vulnerability
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+sqlparse>=0.5.0 # not directly required, pinned by Snyk to avoid a vulnerability
