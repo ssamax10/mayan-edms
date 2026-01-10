@@ -8,3 +8,5 @@ ipython==7.32.0
 readme==0.7.1
 safety==1.10.3
 transifex-client==0.14.4
+aiohttp>=3.13.3 # not directly required, pinned by Snyk to avoid a vulnerability
+urllib3>=2.6.3 # not directly required, pinned by Snyk to avoid a vulnerability
